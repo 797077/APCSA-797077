@@ -1,8 +1,8 @@
 /**
  * Lab 906::Find Mean Median and Mode
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Grace Jau) 
+ * @version (906)
  */
 public class StatRunner{    
     
