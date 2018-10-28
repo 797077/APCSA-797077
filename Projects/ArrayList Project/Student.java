@@ -1,4 +1,3 @@
-
 /**
  * ArrayList Project
  *
@@ -10,65 +9,58 @@ public class Student
     /**
      * Instance variables of class Student
      */
-    private int studNumber;
-    private boolean stuActive;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private int stuNumber;
     private double stuGPA;
-    private String stuName;
 
     /**
      * Constructor for objects of class Student
      */
     public Student()
     {
-        // initialise instance variables
-        studNumber = 0;
-        stuActive = true;
+        firstName = "";
+        middleName = "";
+        lastName = "";
+        stuNumber = 0;
         stuGPA = 0.0;
-        stuName = "Name";
     }
 
     /**
      * Student Methods
      *
      */
-    public void setStudNumber(int sn)
+    public void setStuNumber(int sn)
     {
-        // put your code here
-        studNumber = sn;
+        stuNumber = sn;
     }
-    public int getStudNumber()
+    public int getStuNumber()
     {
-        // put your code here
-        return studNumber;
-    }
-    public void setStuActive(boolean sn)
-    {
-        // put your code here
-        stuActive = sn;
-    }
-    public boolean getStuActive()
-    {
-        // put your code here
-        return stuActive;
+        return stuNumber;
     }
     public void setStuGPA(double sn)
     {
-        // put your code here
         stuGPA = sn;
     }
     public double getStuGPA()
     {
-        // put your code here
         return stuGPA;
     }
-    public void setStuName(String sn)
+    public void setFirstName(String sn)
     {
-        // put your code here
-        stuName = sn;
+        firstName = sn;
     }
-    public String getStuName()
+    public void setMiddleName(String sn)
     {
-        // put your code here
-        return stuName;
+        middleName = sn;
+    }
+    public void setLastName(String sn)
+    {
+        lastName = sn;
+    }
+    public String getFullName()
+    {
+        return lastName+", "+firstName+" "+middleName;
     }
 }
