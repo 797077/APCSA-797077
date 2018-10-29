@@ -18,13 +18,13 @@ public class Student
     /**
      * Constructor for objects of class Student
      */
-    public Student()
+    public Student(String name, int num, double gpa)
     {
         firstName = "";
         middleName = "";
         lastName = "";
-        stuNumber = 0;
-        stuGPA = 0.0;
+        stuNumber = num;
+        stuGPA = gpa;
     }
 
     /**

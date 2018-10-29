@@ -46,8 +46,8 @@ public class StudList{
     /**
      * comment
      */
-    public void addStudent(String name){
-        studList.add(new Student());
+    public void addStudent(String name, int num, double gpa){
+        studList.add(new Student(name, num, gpa));
         parseUserInput(name, studList.get(studList.size()-1));
     }
 
@@ -55,7 +55,7 @@ public class StudList{
      * comment
      */
     public void deleteStudent(){
-
+        
     }
 
     /**
@@ -80,7 +80,7 @@ public class StudList{
             System.out.println("The student list is empty.");
         }else{
             for (int i = 0; i < studList.size(); i++){
-                System.out.println(studList.get(i).getFullName()+"   "+studList.get(i).getStuGPA()+"   "+studList.get(i).getStuNumber());
+                System.out.println(studList.get(i).getFullName()+"   "+studList.get(i).getStuNumber()+"   "+studList.get(i).getStuGPA());
             }
         }
     }
