@@ -54,8 +54,12 @@ public class StudList{
     /**
      * comment
      */
-    public void deleteStudent(){
-        
+    public void deleteStudent(int num, String ln){
+        for (int i = 0; i < studList.size(); i++){
+            if (studList.get(i).equals(ln)){
+                studList.remove(i);
+            }
+        }
     }
 
     /**
