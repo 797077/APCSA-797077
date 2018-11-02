@@ -20,21 +20,25 @@ public class StudListRunner
             System.out.println("4 Clear the list of students");
             System.out.println("5 Print all of the students' information");
             System.out.println("6 Print a student's information");
-            System.out.println("7 Quit");
+            System.out.println("7 Exit");
             System.out.println();
             statement = in.nextLine();
             if (statement.equals("1")){
                 System.out.println("Student name:");
                 name = in.nextLine();
-                num = getStudentNum();
-                gpa = getStudentGPA();
+                num = inputStudentNum();
+                while (sl.studNumAlreadyExists(num)){
+                    System.out.println("A student with this student number already exists. Please choose another number.");
+                    num = inputStudentNum();
+                }
+                gpa = inputStudentGPA();
                 sl.addStudent(name, num, gpa);
                 System.out.println("The student has been added.");
             }else if (statement.equals("2")){
-                int x = getNumOrString("last name");
+                int x = inputNumOrString("last name");
                 if (x == 0){
                     name = "";
-                    num = getStudentNum();
+                    num = inputStudentNum();
                 }else{
                     System.out.println("Student last name:");
                     name = in.nextLine();
@@ -42,13 +46,32 @@ public class StudListRunner
                 }
                 sl.deleteStudent(num, name);
             }else if (statement.equals("3")){
-                sl.editStudentList();
+                int x = inputNumOrString("last name");
+                if (x == 0){
+                    name = "";
+                    num = inputStudentNum();
+                }else{
+                    System.out.println("Student last name:");
+                    name = in.nextLine();
+                    num = 0;
+                }
+                sl.editStudentList(num, name);
             }else if (statement.equals("4")){
                 sl.clearList();
+                System.out.println("The student list has been cleared.");
             }else if (statement.equals("5")){
                 sl.printAll();
             }else if (statement.equals("6")){
-                sl.printStudent();
+                int x = inputNumOrString("last name");
+                if (x == 0){
+                    name = "";
+                    num = inputStudentNum();
+                }else{
+                    System.out.println("Student last name:");
+                    name = in.nextLine();
+                    num = 0;
+                }
+                sl.printStudent(num, name);
             }else if (!statement.equals("7")){
                 System.out.println("That was not a valid command. Please try again.");
             }
@@ -57,11 +80,17 @@ public class StudListRunner
         System.out.println("Exited the program.");
     }
     
-    public static double getStudentGPA(){
+    public static double inputStudentGPA(){
         System.out.println("Student GPA:");
         Scanner in = new Scanner (System.in);
         double gpa = in.nextDouble();
         in.nextLine();
+        while (gpa < 0 || gpa > 5){
+             System.out.println("Please enter a number from 0 to 5.");
+             System.out.println("Student GPA:");
+             gpa = in.nextDouble();
+             in.nextLine();
+        }
         if (gpa%0.01 >= 0.0050){
             gpa += 0.01;
         }
@@ -69,7 +98,7 @@ public class StudListRunner
         return gpa;
     }
     
-    public static int getStudentNum(){
+    public static int inputStudentNum(){
         System.out.println("Student number:");
         Scanner in = new Scanner (System.in);
         int num = in.nextInt();
@@ -83,10 +112,10 @@ public class StudListRunner
         return num;
     }
     
-    public static int getNumOrString(String nameOrLastName){
+    public static int inputNumOrString(String nameOrLastName){
         while (true){
             System.out.println("Enter 0 if you would like to input the student's number.");
-            System.out.println("Enter 1 if you would like to input the student's "+nameOrLastName);
+            System.out.println("Enter 1 if you would like to input the student's "+nameOrLastName+".");
             Scanner in = new Scanner (System.in);
             String s = in.nextLine();
             if (s.equals("0")){
