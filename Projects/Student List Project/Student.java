@@ -7,7 +7,7 @@
 public class Student
 {
     /**
-     * Instance variables of class Student
+     * Instance variables of class Student initialized
      */
     private String firstName;
     private String middleName;
@@ -28,7 +28,7 @@ public class Student
     }
 
     /**
-     * Student Methods
+     * Student Methods (getters and setters for each)
      *
      */
     public void setStuNumber(int sn)

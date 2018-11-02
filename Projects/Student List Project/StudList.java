@@ -16,7 +16,8 @@ public class StudList{
     }
 
     /**
-     * comment
+     * separates the user input into three strings corresponding to first, middle, and last names
+     * sets the first, middle, and last names for the given student
      */
     public void parseUserInput(String name, Student student){
         String fn = ""; String mn = ""; String ln = "";
@@ -44,7 +45,8 @@ public class StudList{
     }
 
     /**
-     * comment
+     * adds a student to the list with the name, student number, and gpa
+     * then parses the name input to set first, middle, and last names
      */
     public void addStudent(String name, int num, double gpa){
         studList.add(new Student(name, num, gpa));
@@ -52,7 +54,9 @@ public class StudList{
     }
 
     /**
-     * comment
+     * takes either the student number or the last name and decides which one was inputted
+     * traverses the student ArrayList to find if a student with a matching number or last name exists
+     * deletes that student or prints that the student does not exist
      */
     public void deleteStudent(int num, String ln){
         int studentExists = -1;
@@ -76,7 +80,9 @@ public class StudList{
     }
 
     /**
-     * comment
+     * finds the student given either the number of the last name
+     * loops through a menu of options for updating the given student's name or gpa
+     * may return to main menu when finished
      */
     public void editStudentList(int num, String ln){
         Scanner in = new Scanner (System.in);
@@ -134,14 +140,14 @@ public class StudList{
     }
 
     /**
-     * comment
+     * clears the student list
      */
     public void clearList(){
         studList.clear();
     }
 
     /**
-     * comment
+     * traverses the arrray and prints each student's name, number, and gpa
      */
     public void printAll(){
         if (studList.size()<=0){
@@ -154,7 +160,8 @@ public class StudList{
     }
 
     /**
-     * comment
+     * finds the student given number or last name
+     * prints that student's information or prints that the student does not exist
      */
     public void printStudent(int num, String ln){
         int studentExists = -1;
@@ -177,7 +184,7 @@ public class StudList{
     }
 
     /**
-     * comment
+     * given a six-digit number, checks to see if a student with that number already exists
      */
     public boolean studNumAlreadyExists(int num){
         for (int i = 0; i < studList.size(); i++){
