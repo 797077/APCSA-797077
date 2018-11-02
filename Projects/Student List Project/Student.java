@@ -63,4 +63,8 @@ public class Student
     {
         return lastName+", "+firstName+" "+middleName;
     }
+    public String getLastName()
+    {
+        return lastName;
+    }
 }

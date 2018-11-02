@@ -55,18 +55,82 @@ public class StudList{
      * comment
      */
     public void deleteStudent(int num, String ln){
+        int studentExists = -1;
         for (int i = 0; i < studList.size(); i++){
-            if (studList.get(i).equals(ln)){
-                studList.remove(i);
+            if (!ln.equals("")){
+                if (studList.get(i).getLastName().equals(ln)){
+                    studentExists = i;
+                }
+            }else{
+                if (studList.get(i).getStuNumber() == num){
+                    studentExists = i;
+                }
             }
+        }
+        if (studentExists == -1){
+            System.out.println("This student was not found in the student list.");
+        }else{
+            studList.remove(studentExists);
+            System.out.println("The student has been deleted.");
         }
     }
 
     /**
      * comment
      */
-    public void editStudentList(){
-
+    public void editStudentList(int num, String ln){
+        Scanner in = new Scanner (System.in);
+        int studentExists = -1;
+        for (int i = 0; i < studList.size(); i++){
+            if (!ln.equals("")){
+                if (studList.get(i).getLastName().equals(ln)){
+                    studentExists = i;
+                }
+            }else{
+                if (studList.get(i).getStuNumber() == num){
+                    studentExists = i;
+                }
+            }
+        }
+        if (studentExists == -1){
+            System.out.println("This student was not found in the student list.");
+        }else{
+            Student student = studList.get(studentExists);
+            for (int i = 0; i == 0; i = i){
+                System.out.println("What would you like to update for this student?");
+                System.out.println("1 Student name");
+                System.out.println("2 Student GPA");
+                System.out.println("3 Return to main menu");
+                String statement = in.nextLine();
+                if (statement.equals("1")){
+                    System.out.println("Updated student name:");
+                    String name = in.nextLine();
+                    parseUserInput(name, student);
+                    System.out.println("The student's name has been updated.");
+                }else if (statement.equals("2")){
+                    System.out.println("Updated student GPA:");
+                    double gpa = in.nextDouble();
+                    in.nextLine();
+                    while (gpa < 0 || gpa > 5){
+                        System.out.println("Please enter a number from 0 to 5.");
+                        System.out.println("Updated student GPA:");
+                        gpa = in.nextDouble();
+                        in.nextLine();
+                    }
+                    if (gpa%0.01 >= 0.0050){
+                        gpa += 0.01;
+                    }
+                    gpa -= gpa%0.01;
+                    student.setStuGPA(gpa);
+                    System.out.println("The student's gpa has been updated.");
+                }else if (statement.equals("3")){
+                    i = 1;
+                }else{
+                    System.out.println("That was not a valid command. Please try again.");
+                }
+                System.out.println();
+            }
+        }
     }
 
     /**
@@ -92,7 +156,35 @@ public class StudList{
     /**
      * comment
      */
-    public void printStudent(){
+    public void printStudent(int num, String ln){
+        int studentExists = -1;
+        for (int i = 0; i < studList.size(); i++){
+            if (!ln.equals("")){
+                if (studList.get(i).getLastName().equals(ln)){
+                    studentExists = i;
+                }
+            }else{
+                if (studList.get(i).getStuNumber() == num){
+                    studentExists = i;
+                }
+            }
+        }
+        if (studentExists == -1){
+            System.out.println("This student was not found in the student list.");
+        }else{
+            System.out.println(studList.get(studentExists).getFullName()+"   "+studList.get(studentExists).getStuNumber()+"   "+studList.get(studentExists).getStuGPA());
+        }
+    }
 
+    /**
+     * comment
+     */
+    public boolean studNumAlreadyExists(int num){
+        for (int i = 0; i < studList.size(); i++){
+            if (studList.get(i).getStuNumber() == num){
+                return true;
+            }
+        }
+        return false;
     }
 }
