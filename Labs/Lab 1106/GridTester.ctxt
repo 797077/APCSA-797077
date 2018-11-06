@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=GridTester
+comment0.text=\r\n\ Matrices\ Lab\r\n\r\n\ @author\ (Grace\ Jau)\r\n\ @version\ (1106)\r\n
+comment1.params=
+comment1.target=GridTester()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Matrices\r\n
+comment2.params=
+comment2.target=void\ loadArray()
+comment2.text=\r\n\ traverses\ array\ and\ sets\ each\ index\ to\ a\ value\ from\ 1\ to\ 100\r\n
+comment3.params=
+comment3.target=void\ printAll()
+comment3.text=\r\n\ traverses\ array\ and\ prints\ each\ value\ in\ a\ 10x10\ grid\r\n
+comment4.params=
+comment4.target=int\ sumAll()
+comment4.text=\r\n\ traverses\ the\ array\ and\ adds\ each\ value\ to\ int\ sum\r\n
+comment5.params=
+comment5.target=int\ findGreatest()
+comment5.text=\r\n\ traverses\ the\ array\ to\ find\ the\ greatest\ value\ in\ the\ array\r\n
+comment6.params=
+comment6.target=int\ numberOfGreatest()
+comment6.text=\r\n\ finds\ the\ greatest\ value\ and\ traverses\ the\ array\ to\ determine\ how\ many\ times\ the\ value\ exists\ in\ the\ array\r\n
+comment7.params=
+comment7.target=double\ findAvg()
+comment7.text=\r\n\ finds\ the\ sum\ of\ the\ values\ in\ the\ array\ and\ divides\ by\ the\ length\ of\ the\ array\r\n
+numComments=8
