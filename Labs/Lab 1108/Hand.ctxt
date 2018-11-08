@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Hand
+comment0.text=\r\n\ Lab\ 1108\r\n\r\n\ @author\ (Grace\ Jau)\r\n\ @version\ (1108)\r\n
+comment1.params=deck
+comment1.target=Hand(Deck)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CardRunner\r\n
+comment2.params=
+comment2.target=void\ printHand()
+comment2.text=\r\n\ \r\n
+comment3.params=
+comment3.target=boolean\ sameSuit()
+comment3.text=\r\n\ \r\n
+comment4.params=
+comment4.target=int\ onePair()
+numComments=5
