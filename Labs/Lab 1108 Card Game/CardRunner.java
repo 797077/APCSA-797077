@@ -1,6 +1,6 @@
 
 /**
- * Lab 1108
+ * Lab 1108 Card Game
  *
  * @author (Grace Jau)
  * @version (1108)
