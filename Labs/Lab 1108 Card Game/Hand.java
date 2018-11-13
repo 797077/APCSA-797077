@@ -13,11 +13,10 @@ public class Hand{
      */
     public Hand(Deck deck){
         hand.add(deck.getCard());
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; hand.size() < 5; i++){
             Card c = deck.getCard();
             for (int j = 0; j < hand.size(); j++){
                 if (c == hand.get(j)){
-                    i--;
                     j = hand.size();
                 }else if (j == hand.size()-1){
                     hand.add(c);
