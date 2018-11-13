@@ -20,7 +20,7 @@ public class Deck{
     }
     
     /**
-     * 
+     * traverses cards Array and prints each card
      */
     public void printDeck(){
         for (int i = 0; i < cards.size(); i++){
@@ -33,7 +33,7 @@ public class Deck{
     }
     
     /**
-     * 
+     * returns a random card from the deck
      */
     public Card getCard(){
         return cards.get((int)(Math.random()*cards.size()));

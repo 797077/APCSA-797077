@@ -6,7 +6,7 @@
  * @version (1108)
  */
 public class Game{
-    Deck deck;
+    Deck deck;//declares and initializes hand and deck objects
     Hand hand;
     /**
      * Constructor for objects of class CardRunner

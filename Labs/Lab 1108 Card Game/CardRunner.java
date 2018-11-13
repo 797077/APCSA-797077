@@ -7,8 +7,8 @@
  */
 public class CardRunner{
     public static void main(){
-        Game game = new Game();
-        game.deck.printDeck();
+        Game game = new Game();//creates new game
+        game.deck.printDeck();//runs print methods
         game.hand.printHand();
     }
 }

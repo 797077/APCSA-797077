@@ -17,21 +17,21 @@ public class Card{
     }
     
     /**
-     * 
+     * prints the rank and suit of the card
      */
     public void printCard(){
         System.out.print(rank+" of "+suit+"s, ");
     }
     
     /**
-     * 
+     * returns card rank
      */
     public int getRank(){
         return rank;
     }
     
     /**
-     * 
+     * returns card suit
      */
     public String getSuit(){
         return suit;

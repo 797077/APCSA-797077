@@ -10,6 +10,7 @@ public class Hand{
     
     /**
      * Constructor for objects of class CardRunner
+     * checks if the card has already been added to the hand and continues to add cards until there are five cards in the hand
      */
     public Hand(Deck deck){
         hand.add(deck.getCard());
@@ -26,7 +27,7 @@ public class Hand{
     }
     
     /**
-     * 
+     * traverses the hand and prints each card
      */
     public void printHand(){
         for (int i = 0; i < hand.size(); i++){
@@ -37,7 +38,7 @@ public class Hand{
     }
     
     /**
-     * 
+     * traverses the array and checks if all cards are of the same suit
      */
     public boolean sameSuit(){
         String suit = hand.get(0).getSuit();
@@ -49,6 +50,9 @@ public class Hand{
         return true;
     }
     
+    /**
+     * traverses the array and returns true if there is exactly one pair
+     */
     public int onePair(){
         int numOfPairs = 0;
         int rankOfPair = 0;
