@@ -8,7 +8,14 @@
  */
 public class PictureTester
 {
-  /** Method to test zeroBlue */
+  public static void testFixUnderwater(){
+      Picture water = new Picture("water.jpg");
+      water.explore();
+      water.fixUnderwater();
+      water.explore();
+    }
+    
+    /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
     Picture beach = new Picture("beach.jpg");
@@ -17,6 +24,27 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testKeepOnlyBlue(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.keepOnlyBlue();
+      myPic.explore();
+    }
+  
+  public static void testNegate(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.negate();
+      myPic.explore();
+    }
+    
+  public static void testGrayscale(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.grayscale();
+      myPic.explore();
+    }
+    
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -59,20 +87,20 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     testZeroBlue();
-    //testKeepOnlyBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
+    testNegate();
+    testGrayscale();
     //testFixUnderwater();
-    //testMirrorVertical();
-    //testMirrorTemple();
+    testMirrorVertical();
+    testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

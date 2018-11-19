@@ -85,6 +85,59 @@ public class Picture extends SimplePicture
     
   }
   
+  public void fixUnderwater(){
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              int b;
+              int g;
+              if (pixelObj.getBlue()+50>255){
+                  b = 255;
+              }else{
+                  b = pixelObj.getBlue()+50;
+                }
+              if (pixelObj.getGreen()+50>255){
+                  g = 255;
+              }else{
+                  g = pixelObj.getGreen()+50;
+                }
+              if (pixelObj.getGreen()>pixelObj.getBlue()){
+                  pixelObj.setGreen(g);
+              }else{
+                  pixelObj.setBlue(b);
+                }
+            }
+        }
+    }
+  
+    /** Method to set the red to 0 */
+  public void zeroRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+      }
+    }
+  }
+  
+    /** Method to set the green to 0 */
+  public void zeroGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
@@ -97,6 +150,21 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  public void keepOnlyBlue(){
+      zeroRed();
+      zeroGreen();
+    }
+    
+  public void keepOnlyRed(){
+      zeroBlue();
+      zeroGreen();
+    }
+    
+  public void keepOnlyGreen(){
+      zeroRed();
+      zeroBlue();
+    }
   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
@@ -217,7 +285,34 @@ public class Picture extends SimplePicture
     }
   }
   
-  
+  public void negate(){
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              pixelObj.setBlue(255-pixelObj.getBlue());
+              pixelObj.setRed(255-pixelObj.getRed());
+              pixelObj.setGreen(255-pixelObj.getGreen());
+            }
+      }
+    }
+
+  public void grayscale(){
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              int n = (pixelObj.getBlue()+pixelObj.getRed()+pixelObj.getGreen());
+              n = n/3;
+              pixelObj.setBlue(n);
+              pixelObj.setRed(n);
+              pixelObj.setGreen(n);
+            }
+      }
+    }
+    
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
