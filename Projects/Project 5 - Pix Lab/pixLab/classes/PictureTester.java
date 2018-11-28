@@ -14,6 +14,20 @@ public class PictureTester
       water.fixUnderwater();
       water.explore();
     }
+  
+  public static void testMirrorVerticalRToL(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.mirrorVerticalRightToLeft();
+      myPic.explore();
+    }
+  
+  public static void testMirrorHorizontal(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.mirrorHorizontal();
+      myPic.explore();
+    }
     
     /** Method to test zeroBlue */
   public static void testZeroBlue()
