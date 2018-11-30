@@ -330,13 +330,13 @@ public class Picture extends SimplePicture
     }
   
   public void mirrorHorizontal(){
-      Pixel[][] pixels = this.getPixels2D();
+    Pixel[][] pixels = this.getPixels2D();
     Pixel topPixel = null;
     Pixel bottomPixel = null;
     int height = pixels.length;
-    for (int row = 0; row < height/2; row++)
+    for (int row = 0; row < height; row++)
     {
-      for (int col = 0; col < height; col++)
+      for (int col = 0; col < pixels[0].length; col++)
       {
         topPixel = pixels[row][col];
         bottomPixel = pixels[height - 1 - row][col];
@@ -344,6 +344,38 @@ public class Picture extends SimplePicture
       }
     } 
     }
+    
+  public void mirrorHorizontalBToT(){
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < height; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height - 1 - row][col];
+        topPixel.setColor(bottomPixel.getColor());
+      }
+    } 
+    }
+  
+  public void mirrorDiagonal(){
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel originalPixel = null;
+    Pixel copiedPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < height; row++)
+    {
+      for (int col = 0; col < height; col++)
+      {
+        originalPixel = pixels[row][col];
+        copiedPixel = pixels[col][row];
+        copiedPixel.setColor(originalPixel.getColor());
+      }
+    } 
+    }  
     
   /* Main method for testing - each class in Java can have a main 
    * method 
@@ -355,5 +387,6 @@ public class Picture extends SimplePicture
     beach.zeroBlue();
     beach.explore();
   }
+  
   
 } // this } is the end of class Picture, put all new methods before this

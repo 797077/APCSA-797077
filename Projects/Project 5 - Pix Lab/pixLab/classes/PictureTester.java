@@ -29,6 +29,20 @@ public class PictureTester
       myPic.explore();
     }
     
+  public static void testMirrorHorizontalBToT(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.mirrorHorizontalBToT();
+      myPic.explore();
+    }
+
+  public static void testMirrorDiagonal(){
+      Picture myPic = new Picture("myPicture.jpg");
+      myPic.explore();
+      myPic.mirrorDiagonal();
+      myPic.explore();
+  }
+    
     /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
