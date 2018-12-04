@@ -201,7 +201,50 @@ public class Picture extends SimplePicture
       // loop from 13 to just before the mirror point
       for (int col = 13; col < mirrorPoint; col++)
       {
-        
+        count++;
+        leftPixel = pixels[row][col];      
+        rightPixel = pixels[row]                       
+                         [mirrorPoint - col + mirrorPoint];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+    System.out.println(count);
+  }
+  
+    /** Mirror the snowman's arms */
+  public void mirrorArms()
+  {
+    int mirrorPoint = 193;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+
+    // Left arm
+    for (int row = 158; row < mirrorPoint; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 103; col < 295; col++)
+      {
+        topPixel = pixels[row][col];      
+        bottomPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+  
+  /** Mirror one seagull to get two seagulls */
+  public void mirrorGull()
+  {
+    int mirrorPoint = 343;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int row = 231; row < 326; row++)
+    {
+      for (int col = 235; col < mirrorPoint; col++)
+      {
         leftPixel = pixels[row][col];      
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
