@@ -115,12 +115,29 @@ public class PictureTester
     canvas.explore();
   }
   
+  /** Method to test my collage method */
+  public static void testMyCollage(){
+      Picture canvas = new Picture("640x480.jpg");
+      canvas.myCollage();
+      canvas.explore();
+    }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("swan.jpg");
-    swan.edgeDetection(10);
-    swan.explore();
+    Picture swan1 = new Picture("swan.jpg");
+    swan.edgeDetection(10, swan1);
+    swan1.explore();
+  }
+  
+  /** Method to test edgeDetection */
+  public static void testEdgeDetectionColor()
+  {
+    Picture swan = new Picture("swan.jpg");
+    Picture swan1 = new Picture("swan.jpg");
+    swan.edgeDetection(10, swan1);
+    swan1.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -136,12 +153,12 @@ public class PictureTester
     //testKeepOnlyGreen();
     testNegate();
     testGrayscale();
-    //testFixUnderwater();
+    testFixUnderwater();
     testMirrorVertical();
     testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
-    //testMirrorDiagonal();
+    testMirrorArms();
+    testMirrorGull();
+    testMirrorDiagonal();
     testCollage();
     //testCopy();
     testEdgeDetection();
