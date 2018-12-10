@@ -15,6 +15,13 @@ public class PictureTester
       water.explore();
     }
   
+  public static void testFixUnderwaterChallenge(){
+      Picture water = new Picture("water.jpg");
+      water.explore();
+      water.fixUnderwaterChallenge();
+      water.explore();
+    }
+  
   public static void testMirrorVerticalRToL(){
       Picture myPic = new Picture("myPicture.jpg");
       myPic.explore();
@@ -134,10 +141,11 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetectionColor()
   {
-    Picture swan = new Picture("swan.jpg");
-    Picture swan1 = new Picture("swan.jpg");
-    swan.edgeDetection(10, swan1);
-    swan1.explore();
+    Picture myFace = new Picture("myFace.jpg");
+    Picture myFace1 = new Picture("myFace.jpg");
+    myFace.edgeDetectionColor(20, myFace1);
+    myFace.explore();
+    myFace1.explore();
   }
   
   /** Main method for testing.  Every class can have a main

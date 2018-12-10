@@ -112,6 +112,50 @@ public class Picture extends SimplePicture
         }
     }
   
+  public void fixUnderwaterChallenge(){
+      Pixel[][] pixels = this.getPixels2D();
+      int maxR = 0; int minR = 255;
+      int maxG = 0; int minG = 255;
+      int maxB = 0; int minB = 255;
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              if (pixelObj.getRed()>maxR){
+                  maxR = pixelObj.getRed();
+                }
+              if (pixelObj.getRed()<minR){
+                  minR = pixelObj.getRed();
+                }
+              if (pixelObj.getGreen()>maxG){
+                  maxG = pixelObj.getGreen();
+                }
+              if (pixelObj.getGreen()<minG){
+                  minG = pixelObj.getGreen();
+                }
+              if (pixelObj.getBlue()>maxB){
+                  maxB = pixelObj.getBlue();
+                }
+              if (pixelObj.getBlue()<minB){
+                  minB = pixelObj.getBlue();
+                }
+            }
+        }
+      double rDif = maxR-minR;
+      double gDif = maxG-minG;
+      double bDif = maxB-minB;
+      //System.out.print(rDif+" "+gDif+" "+bDif);
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj : rowArray)
+          {
+              pixelObj.setRed((int)((pixelObj.getRed()/rDif)*255));
+              pixelObj.setGreen((int)((pixelObj.getGreen()/gDif)*255));
+              pixelObj.setBlue((int)((pixelObj.getBlue()/bDif)*255));
+            }
+        }
+    }
+    
     /** Method to set the red to 0 */
   public void zeroRed()
   {
@@ -392,7 +436,7 @@ public class Picture extends SimplePicture
   }
   
   /** Method to show large changes in color 
-    * creates a colored image using edge detection
+    * creates a new image using edge detection
     */
   public void edgeDetectionColor(int edgeDist, Picture destinationPic)
   {
@@ -411,9 +455,9 @@ public class Picture extends SimplePicture
         rightColor = rightPixel.getColor();
         if (leftPixel.colorDistance(rightColor) > 
             edgeDist)
-          pixelsCopy[row][col].setColor(Color.BLUE);
+          pixelsCopy[row][col].setColor(Color.GREEN);
         else
-          pixelsCopy[row][col].setColor(Color.WHITE);
+          pixelsCopy[row][col].setColor(Color.BLUE);
       }
     }
     Pixel topPixel = null;
@@ -429,7 +473,7 @@ public class Picture extends SimplePicture
         bottomColor = bottomPixel.getColor();
         if (topPixel.colorDistance(bottomColor) > 
             edgeDist){
-          pixelsCopy[row][col].setColor(Color.BLUE);
+          pixelsCopy[row][col].setColor(Color.WHITE);
         }
       }
     }
